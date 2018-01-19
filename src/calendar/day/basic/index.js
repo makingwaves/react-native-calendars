@@ -18,7 +18,8 @@ class Day extends Component {
     marking: PropTypes.any,
     onPress: PropTypes.func,
     date: PropTypes.object,
-    icon: PropTypes.any
+    icon: PropTypes.any,
+    lastDayOfTheWeek: PropTypes.any
   };
 
   constructor(props) {
@@ -68,6 +69,7 @@ class Day extends Component {
     const containerStyle = [this.style.base];
     const textStyle = [this.style.text];
     const dotStyle = [this.style.dot];
+    const dayView = [this.style.dayView];
 
     let marking = this.props.marking || {};
     if (marking && marking.constructor === Array && marking.length) {
@@ -92,6 +94,10 @@ class Day extends Component {
     } else if (this.props.state === 'today') {
       textStyle.push(this.style.todayText);
     }
+    
+    if(lastDayOfTheWeek) {
+      dayView.push({borderRightWidth: 1})
+    }
     return (
       <TouchableOpacity
         style={containerStyle}
@@ -102,7 +108,7 @@ class Day extends Component {
             : this.props.state === 'disabled'
         }
       >
-       <View style={this.style.dayView}>
+       <View style={dayView}>
           {!this.props.icon ? dot : this.styleIcon()}
           <Text allowFontScaling={false} style={textStyle}>
               {String(this.props.children)}
