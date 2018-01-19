@@ -33,7 +33,7 @@ class Day extends Component {
 
   styleIcon() {
     const {icon} = this.props;
-    return (<View style={this.style.iconView}><View style={this.style.iconText}>{icon}</View></View>);
+    return (<View style={this.style.iconView}><Text style={this.style.iconText}>{icon}</Text></View>);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -81,7 +81,7 @@ class Day extends Component {
       //if (marking.dotColor) {
        // dotStyle.push({backgroundColor: marking.dotColor});
      // }
-      dot = (<View style={dotStyle}><Text style={this.style.dotText}></Text></View>);
+      dot = (<View style={dotStyle}><View style={this.style.dotText}></View></View>);
     }
 
     if (marking.selected) {
