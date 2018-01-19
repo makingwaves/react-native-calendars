@@ -137,10 +137,9 @@ class Calendar extends Component {
   }
 
   renderDay(day, id, length) {
-    let dayStyles = {flex: 1};
-    console.log((id+1), length)
+    let lastDayOfTheWeek = false;
     if((id+1) === length) {
-      let dayStyles = {flex: 1, borderRightWidth: 1};
+      let lastDayOfTheWeek = true;
     }
     const minDate = parseDate(this.props.minDate);
     const maxDate = parseDate(this.props.maxDate);
@@ -173,7 +172,8 @@ class Calendar extends Component {
           onPress={this.pressDay}
           date={xdateToData(day)}
           marking={this.getDateMarking(day)}
-          icon={this.getDateIcon(day)}
+          icon={this.getDateIcon(day)},
+          lastDayOfTheWeek={lastDayOfTheWeek}
         >
             {date}
         </DayComp>
