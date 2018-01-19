@@ -17,7 +17,8 @@ class Day extends Component {
     theme: PropTypes.object,
     marking: PropTypes.any,
     onPress: PropTypes.func,
-    date: PropTypes.object
+    date: PropTypes.object,
+    icon: PropTypes.any
   };
 
   constructor(props) {
@@ -28,6 +29,11 @@ class Day extends Component {
 
   onDayPress() {
     this.props.onPress(this.props.date);
+  }
+
+  styleIcon() {
+    const {icon} = this.props;
+    return (<View style={this.style.iconView}><Text style={this.style.iconText}>{icon}</Text></View>);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -97,8 +103,12 @@ class Day extends Component {
             : this.props.state === 'disabled'
         }
       >
-        <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
-        {dot}
+       <View>
+          {!this.props.icon ? dot : this.styleIcon()}
+          <Text allowFontScaling={false} style={textStyle}>
+              {String(this.props.children)}
+          </Text>
+        </View>
       </TouchableOpacity>
     );
   }
