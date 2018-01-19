@@ -95,7 +95,7 @@ class Day extends Component {
       textStyle.push(this.style.todayText);
     }
     
-    if(lastDayOfTheWeek) {
+    if(this.props.lastDayOfTheWeek) {
       dayView.push({borderRightWidth: 1})
     }
     return (
