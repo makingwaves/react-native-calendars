@@ -136,7 +136,7 @@ class Calendar extends Component {
     this.updateMonth(this.state.currentMonth.clone().addMonths(count, true));
   }
 
-  renderDay(day, id) {
+  renderDay(day, id, i, length) {
     let dayStyles = {flex: 1};
     if(i === length) {
       let dayStyles = {flex: 1, borderRightWidth: 1};
