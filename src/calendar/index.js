@@ -159,6 +159,7 @@ class Calendar extends Component {
     } else {
       const DayComp = this.getDayComponent();
       const date = day.getDate();
+      const parentChildDayIcon = this.getDateIcon(day);
       dayComp = (
         <DayComp
           key={id}
@@ -168,7 +169,7 @@ class Calendar extends Component {
           date={xdateToData(day)}
           marking={this.getDateMarking(day)}
         >
-          {date}
+          {!parentChildDayIcon ? date : parentChildDayIcon}
         </DayComp>
       );
     }
@@ -199,6 +200,18 @@ class Calendar extends Component {
       return dates;
     } else {
       return false;
+    }
+  }
+
+  getDateIcon(day) {
+    if (!this.props.markedDates) {
+        return false;
+    }
+    const dates = this.props.markedDates[day.toString('yyyy-MM-dd')] || EmptyArray;
+    if (dates.icon) {
+        return dates.icon;
+    } else {
+        return false;
     }
   }
 
