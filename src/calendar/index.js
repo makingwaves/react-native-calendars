@@ -137,6 +137,10 @@ class Calendar extends Component {
   }
 
   renderDay(day, id) {
+    let dayStyles = {flex: 1};
+    if(i === length) {
+      let dayStyles = {flex: 1, borderRightWidth: 1};
+    }
     const minDate = parseDate(this.props.minDate);
     const maxDate = parseDate(this.props.maxDate);
     let state = '';
@@ -152,9 +156,9 @@ class Calendar extends Component {
     let dayComp;
     if (!dateutils.sameMonth(day, this.state.currentMonth) && this.props.hideExtraDays) {
       if (this.props.markingType === 'period') {
-        dayComp = (<View key={id} style={{flex: 1}}/>);
+        dayComp = (<View key={id} style={dayStyles}/>);
       } else {
-        dayComp = (<View key={id} style={{flex: 1}}/>);
+        dayComp = (<View key={id} style={dayStyles}/>);
       }
     } else {
       const DayComp = this.getDayComponent();
