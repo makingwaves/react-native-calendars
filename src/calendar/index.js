@@ -156,9 +156,9 @@ class Calendar extends Component {
     let dayComp;
     if (!dateutils.sameMonth(day, this.state.currentMonth) && this.props.hideExtraDays) {
       if (this.props.markingType === 'period') {
-        dayComp = (<View key={id} style={dayStyles}/>);
+        dayComp = (<View key={id} style={{flex: 1}}/>);
       } else {
-        dayComp = (<View key={id} style={dayStyles}/>);
+        dayComp = (<View key={id} style={{flex: 1}}/>);
       }
     } else {
       const DayComp = this.getDayComponent();
