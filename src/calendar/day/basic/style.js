@@ -55,6 +55,11 @@ export default function styleConstructor(theme={}) {
     iconText: {
       color: appStyle.todayTextColor
     },
+    dayView: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
     ...(theme[STYLESHEET_ID] || {})
   });
 }
