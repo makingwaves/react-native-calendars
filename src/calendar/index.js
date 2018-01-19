@@ -138,7 +138,6 @@ class Calendar extends Component {
 
   renderDay(day, id, i, length) {
     let dayStyles = {flex: 1};
-    console.log(i, length);
     if(i === length) {
       let dayStyles = {flex: 1, borderRightWidth: 1};
     }
@@ -229,6 +228,7 @@ class Calendar extends Component {
     const week = [];
     const daysLength = days.length
     days.forEach((day, id2, index) => {
+console.log(day, id2, index);
       week.push(this.renderDay(day, id2, index, daysLength));
     }, this);
 
