@@ -168,8 +168,9 @@ class Calendar extends Component {
           onPress={this.pressDay}
           date={xdateToData(day)}
           marking={this.getDateMarking(day)}
+          icon={this.getDateIcon(day)}
         >
-          {!parentChildDayIcon ? date : parentChildDayIcon}
+            {date}
         </DayComp>
       );
     }
