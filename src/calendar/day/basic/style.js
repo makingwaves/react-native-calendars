@@ -49,6 +49,12 @@ export default function styleConstructor(theme={}) {
     selectedDot: {
       backgroundColor: appStyle.selectedDotColor
     },
+    iconView: {
+      flex: 1
+    },
+    iconText: {
+      color: appStyle.todayTextColor
+    }
     ...(theme[STYLESHEET_ID] || {})
   });
 }
