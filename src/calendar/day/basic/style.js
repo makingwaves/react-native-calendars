@@ -59,7 +59,7 @@ export default function styleConstructor(theme={}) {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center'
-    }
+    },
     ...(theme[STYLESHEET_ID] || {})
   });
 }
