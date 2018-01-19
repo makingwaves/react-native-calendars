@@ -79,14 +79,13 @@ class Day extends Component {
     if (!marking.disabled) {
       dotStyle.push(this.style.visibleDot);
       if (marking.selected) {
-        dotStyle.push({backgroundColor: this.style.selected});
+        dotStyle.push(this.style.selected);
       }
       dot = (<View style={dotStyle}><View style={this.style.dotText}></View></View>);
     }
 
     if (marking.selected) {
       containerStyle.push(this.style.selected);
-      dotStyle.push(this.style.selectedDot);
       textStyle.push(this.style.selectedText);
     } else if (typeof marking.disabled !== 'undefined' ? marking.disabled : this.props.state === 'disabled') {
       textStyle.push(this.style.disabledText);
