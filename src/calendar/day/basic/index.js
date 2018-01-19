@@ -76,7 +76,7 @@ class Day extends Component {
       };
     }
     let dot;
-    if (!marking.selected) {
+    if (!marking.disabled) {
       dotStyle.push(this.style.visibleDot);
       //if (marking.dotColor) {
        // dotStyle.push({backgroundColor: marking.dotColor});
