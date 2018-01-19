@@ -33,7 +33,7 @@ class Day extends Component {
 
   styleIcon() {
     const {icon} = this.props;
-    return (<View style={this.style.iconView}><Text style={this.style.iconText}>{icon}</Text></View>);
+    return (<View style={this.style.iconView}><View style={this.style.iconText}>{icon}</View></View>);
   }
 
   shouldComponentUpdate(nextProps) {
