@@ -54,7 +54,7 @@ export default function styleConstructor(theme={}) {
     },
     iconText: {
       color: appStyle.todayTextColor
-    }
+    },
     ...(theme[STYLESHEET_ID] || {})
   });
 }
