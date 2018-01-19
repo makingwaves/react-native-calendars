@@ -103,7 +103,7 @@ class Day extends Component {
             : this.props.state === 'disabled'
         }
       >
-       <View style={{flex: 1}}>
+       <View style={this.style.dayView}>
           {!this.props.icon ? dot : this.styleIcon()}
           <Text allowFontScaling={false} style={textStyle}>
               {String(this.props.children)}
