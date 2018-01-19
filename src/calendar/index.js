@@ -138,6 +138,7 @@ class Calendar extends Component {
 
   renderDay(day, id, length) {
     let dayStyles = {flex: 1};
+    console.log((id+1), length)
     if((id+1) === length) {
       let dayStyles = {flex: 1, borderRightWidth: 1};
     }
