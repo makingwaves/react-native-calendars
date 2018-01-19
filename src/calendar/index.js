@@ -136,9 +136,9 @@ class Calendar extends Component {
     this.updateMonth(this.state.currentMonth.clone().addMonths(count, true));
   }
 
-  renderDay(day, id, i, length) {
+  renderDay(day, id, length) {
     let dayStyles = {flex: 1};
-    if(i === length) {
+    if((id+1) === length) {
       let dayStyles = {flex: 1, borderRightWidth: 1};
     }
     const minDate = parseDate(this.props.minDate);
@@ -227,9 +227,8 @@ class Calendar extends Component {
   renderWeek(days, id) {
     const week = [];
     const daysLength = days.length
-    days.forEach((day, id2, index) => {
-console.log(day, id2, index);
-      week.push(this.renderDay(day, id2, index, daysLength));
+    days.forEach((day, id2) => {
+      week.push(this.renderDay(day, id2, daysLength));
     }, this);
 
     if (this.props.showWeekNumbers) {
