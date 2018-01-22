@@ -137,7 +137,7 @@ class Calendar extends Component {
   }
 
   renderDay(day, id, length) {
-    const lastDayOfTheWeek = false;
+    let lastDayOfTheWeek = false;
     if((id+1) === length) {
       console.log((id+1), length);
       lastDayOfTheWeek = true;
