@@ -80,7 +80,8 @@ class Calendar extends Component {
       currentMonth = XDate();
     }
     this.state = {
-      currentMonth
+        currentMonth,
+        firstDayOfNewMonth: false
     };
 
     this.updateMonth = this.updateMonth.bind(this);
@@ -139,7 +140,6 @@ class Calendar extends Component {
   renderDay(day, id, length) {
     let lastDayOfTheWeek = false;
     if((id+1) === length) {
-      console.log((id+1), length);
       lastDayOfTheWeek = true;
     }
     const minDate = parseDate(this.props.minDate);
@@ -156,16 +156,21 @@ class Calendar extends Component {
     }
     let dayComp;
     if (!dateutils.sameMonth(day, this.state.currentMonth) && this.props.hideExtraDays) {
+      let addStyle = {};
+
+      if(day.getDate() === 1 &&  (day.getMonth()+1) === this.state.currentMonth.getMonth()+2 ||
+          day.getDate() === 1 && (day.getMonth()+1) === 1 && day.getFullYear() === this.state.currentMonth.getFullYear()+1) {
+          addStyle = {borderLeftWidth: 1};
+      }
       if (this.props.markingType === 'period') {
         dayComp = (<View key={id} style={{flex: 1}}/>);
       } else {
-        dayComp = (<View key={id} style={{flex: 1}}/>);
+        dayComp = (<View key={id} style={[{flex: 1}, addStyle]}/>);
       }
     } else {
       const DayComp = this.getDayComponent();
       const date = day.getDate();
       const parentChildDayIcon = this.getDateIcon(day);
-        console.log("lastDayOfTheWeek", lastDayOfTheWeek);
       dayComp = (
         <DayComp
           key={id}
@@ -238,7 +243,7 @@ class Calendar extends Component {
       week.unshift(this.renderWeekNumber(days[days.length - 1].getWeek()));
     }
 
-    return (<View style={this.style.week} key={id}>{week}</View>);
+    return (<View style={[this.style.week, {width: (days.length*40)}]} key={id}>{week}</View>);
   }
 
   render() {

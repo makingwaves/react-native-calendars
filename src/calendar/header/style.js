@@ -47,6 +47,11 @@ export default function(theme={}) {
       fontFamily: appStyle.textDayHeaderFontFamily,
       color: appStyle.textSectionTitleColor
     },
+    dayHeaderText: {
+        textAlign: 'center',
+        color: '#fff',
+        fontSize: 20
+    },
     ...(theme[STYLESHEET_ID] || {})
   });
 }

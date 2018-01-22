@@ -77,7 +77,7 @@ function page(xd, firstDayOfWeek) {
     after = fromTo(days[days.length - 1], to);
   }
 
-  return before.concat(days.slice(1, days.length - 1), after);
+  return before.concat(days.slice(1, days.length - 1));
 }
 
 module.exports = {

@@ -85,22 +85,12 @@ class CalendarHeader extends Component {
     }
     return (
       <View>
-        <View style={this.style.header}>
-          {leftArrow}
-          <View style={{ flexDirection: 'row' }}>
-            <Text allowFontScaling={false} style={this.style.monthText}>
-              {this.props.month.toString(this.props.monthFormat ? this.props.monthFormat : 'MMMM yyyy')}
-            </Text>
-            {indicator}
-          </View>
-          {rightArrow}
-        </View>
         {
           !this.props.hideDayNames &&
           <View style={this.style.week}>
             {this.props.weekNumbers && <Text allowFontScaling={false} style={this.style.dayHeader}></Text>}
             {weekDaysNames.map((day, idx) => (
-              <View allowFontScaling={false} key={idx} style={this.style.dayHeader} numberOfLines={1}><Text>{day}</Text></View>
+              <View allowFontScaling={false} key={idx} style={this.style.dayHeader} numberOfLines={1}><Text style={this.style.dayHeaderText}>{day}</Text></View>
             ))}
           </View>
         }
