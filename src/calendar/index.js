@@ -137,9 +137,10 @@ class Calendar extends Component {
   }
 
   renderDay(day, id, length) {
-    let lastDayOfTheWeek = false;
+    const lastDayOfTheWeek = false;
     if((id+1) === length) {
-      let lastDayOfTheWeek = true;
+      console.log((id+1), length);
+      lastDayOfTheWeek = true;
     }
     const minDate = parseDate(this.props.minDate);
     const maxDate = parseDate(this.props.maxDate);
@@ -164,6 +165,7 @@ class Calendar extends Component {
       const DayComp = this.getDayComponent();
       const date = day.getDate();
       const parentChildDayIcon = this.getDateIcon(day);
+        console.log("lastDayOfTheWeek", lastDayOfTheWeek);
       dayComp = (
         <DayComp
           key={id}
