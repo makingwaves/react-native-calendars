@@ -96,7 +96,7 @@ class Day extends Component {
     }
     
     if(this.props.lastDayOfTheWeek) {
-      dayView.push({borderRightWidth: 1})
+      dayView.push({borderRightWidth: 1});
     }
     return (
       <TouchableOpacity

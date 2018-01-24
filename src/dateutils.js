@@ -66,7 +66,7 @@ function page(xd, firstDayOfWeek) {
   const to = days[days.length - 1].clone();
   const day = to.getDay();
   if (day !== ldow) {
-    to.addDays((ldow + 7 - day) % 7);
+    to.addDays((ldow + 2 - day) % 7);
   }
 
   if (isLTE(from, days[0])) {
@@ -77,7 +77,7 @@ function page(xd, firstDayOfWeek) {
     after = fromTo(days[days.length - 1], to);
   }
 
-  return before.concat(days.slice(1, days.length - 1));
+  return before.concat(days.slice(1, days.length));
 }
 
 module.exports = {
